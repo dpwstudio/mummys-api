@@ -1,0 +1,10 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost');
+    socket.on('emit to client', function (data) {
+        alert(data.msg);
+        socket.emit('messageClientServer', {
+            messageFromClient: 'say hello to server'
+        });
+    });
+</script>

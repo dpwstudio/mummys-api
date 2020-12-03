@@ -1,0 +1,446 @@
+@media only screen and (min-width:320px) and (max-width:479px) {
+    .mm-toggle-wrap {
+        display: inline-block;
+        position: absolute;
+        top: 12px
+    }
+
+    .mm-toggle {
+        display: block
+    }
+
+    .container-fluid {
+        width: 100%
+    }
+
+    #pixxett-api header.header h1 {
+        display: inline-block;
+        margin-left: 28%
+    }
+
+    #documenter_sidebar {
+        display: none
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 0%
+    }
+
+    #pixxett-api #background {
+        display: none
+    }
+
+    #pixxett-api .method .method-area .method-example {
+        margin-left: 0;
+        background: #2d3134;
+        float: left
+    }
+
+    #pixxett-api .method .method-area:first-child .method-example {
+        padding-top: 20px;
+        overflow: hidden;
+        width: 100%
+    }
+
+    #pixxett-api .method-area-wrapper {
+        width: 100%
+    }
+
+    #documenter_content {
+        left: 0%;
+        padding: 20px
+    }
+
+    #pixxett-api .method .method-copy {
+        padding: 0 0 20px;
+        width: 100%
+    }
+
+    #pixxett-api .method .method-example {
+        padding: 20px;
+        margin-left: 0%
+    }
+
+    #documenter_content>section {
+        padding-bottom: 0
+    }
+
+    #pixxett-api .method .method-copy .method-copy-padding {
+        padding: 20px 0
+    }
+
+    #pixxett-api .header-section.header-section-example {
+        left: 0%;
+        padding-left: 20px
+    }
+
+    #pixxett-api #language .language-toggle li .language-toggle-button {
+        padding: 0 5px;
+        border: 0 solid transparent;
+        font-size: 10px;
+        line-height: 27px
+    }
+
+    #pixxett-api #language .language-toggle li {
+        margin: 11px 2px 0
+    }
+
+    #pixxett-api .method .method-copy .method-list {
+        padding: 0 0 0
+    }
+
+    #pixxett-api .method .method-example .table {
+        margin: 0;
+        max-width: inherit;
+        overflow: auto
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .table-responsive {
+        border-width: 0 !important
+    }
+}
+
+@media only screen and (min-width:480px) and (max-width:767px) {
+    .mm-toggle-wrap {
+        display: inline-block;
+        position: absolute;
+        top: 12px
+    }
+
+    .mm-toggle {
+        display: block
+    }
+
+    .container-fluid {
+        width: 100%
+    }
+
+    #pixxett-api header.header h1 {
+        display: inline-block;
+        margin-left: 15%
+    }
+
+    #documenter_sidebar {
+        display: none
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 0%
+    }
+
+    #pixxett-api #background {
+        display: none
+    }
+
+    #pixxett-api .method .method-area .method-example {
+        margin-left: 0;
+        background: #2d3134;
+        float: left
+    }
+
+    #pixxett-api .method .method-area:first-child .method-example {
+        padding-top: 20px;
+        width: 100%
+    }
+
+    #pixxett-api .method-area-wrapper {
+        width: 100%
+    }
+
+    #documenter_content {
+        left: 0%;
+        padding: 20px
+    }
+
+    #pixxett-api .method .method-copy {
+        padding: 0 0 20px;
+        width: 100%
+    }
+
+    #pixxett-api .method .method-example {
+        padding: 20px;
+        margin-left: 0%
+    }
+
+    #documenter_content>section {
+        padding-bottom: 0
+    }
+
+    #pixxett-api .method .method-copy .method-copy-padding {
+        padding: 20px 0
+    }
+
+    #pixxett-api .header-section.header-section-example {
+        padding-left: 20px
+    }
+}
+
+@media(min-width:768px) and (max-width:991px) {
+    .mm-toggle-wrap {
+        display: none
+    }
+
+    #pixxett-api .dx-nav-0-link {
+        font-size: 12px;
+        margin-right: 15px
+    }
+
+    #pixxett-api .dx-search-input {
+        width: 150px
+    }
+
+    #pixxett-api .dx-btn {
+        font-size: 12px
+    }
+
+    #documenter_sidebar ol a {
+        padding: 6px 10px 6px 0;
+        padding-left: 15px;
+        font-size: 12px;
+        line-height: 20px
+    }
+
+    #documenter_sidebar {
+        width: 19%
+    }
+
+    #documenter_content {
+        left: 19%;
+        padding-left: 20px;
+        padding-top: 25px
+    }
+
+    #pixxett-api .method-area-wrapper {
+        width: 80.5%
+    }
+
+    #pixxett-api #background {
+        left: 60.5%
+    }
+
+    #pixxett-api #background .background-actual {
+        left: 0%
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 60.6%
+    }
+
+    #pixxett-api .method .method-copy {
+        padding: 0 0 20px;
+        width: 50%
+    }
+
+    #pixxett-api .method .method-copy h1 {
+        font-size: 22px;
+        line-height: 24px
+    }
+
+    #documenter_content>section {
+        padding-bottom: 30px
+    }
+
+    #pixxett-api .method .method-copy .method-list {
+        padding: 15px 15px 0
+    }
+
+    #pixxett-api .method .method-copy .method-copy-padding {
+        padding: 20px 15px 20px 0
+    }
+
+    #pixxett-api .method .method-example {
+        margin-left: 50.6%;
+        padding: 45px 20px 20px
+    }
+
+    #pixxett-api .method .method-example .table {
+        margin: 0;
+        max-width: inherit;
+        overflow-x: auto
+    }
+
+    #pixxett-api .header-section.header-section-example {
+        padding-left: 15px
+    }
+
+    #pixxett-api #language .language-toggle li {
+        margin: 14px 2px 0
+    }
+
+    #pixxett-api #language .language-toggle li .language-toggle-button {
+        padding: 0 5px;
+        font-size: 10px;
+        line-height: 20px
+    }
+}
+
+@media(min-width:992px) and (max-width:1199px) {
+    .mm-toggle-wrap {
+        display: none
+    }
+
+    #documenter_sidebar {
+        width: 18%
+    }
+
+    #documenter_sidebar ol a {
+        padding-left: 15px;
+        font-size: 12px;
+        line-height: 20px
+    }
+
+    div.scrollholder,
+    #documenter_sidebar ol {
+        height: 100%
+    }
+
+    #pixxett-api #background {
+        left: 59%
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 59%
+    }
+
+    #pixxett-api #language .language-toggle li .language-toggle-button {
+        padding: 0 9px;
+        font-size: 12px;
+        line-height: 29px
+    }
+
+    #pixxett-api .header-section.header-section-example {
+        padding-left: 20px
+    }
+
+    #pixxett-api #background .background-actual {
+        left: 0%
+    }
+
+    #pixxett-api .method-area-wrapper {
+        width: 80%
+    }
+
+    #documenter_content {
+        right: 0;
+        left: 19%;
+        padding: 10px 15px
+    }
+
+    #documenter_content>section {
+        padding-bottom: 30px
+    }
+
+    #pixxett-api .method .method-copy .method-copy-padding {
+        padding: 20px 15px 20px 0
+    }
+
+    #pixxett-api .method .method-copy h1 {
+        font-size: 20px;
+        line-height: 28px
+    }
+
+    #pixxett-api .method .method-example {
+        padding: 15px 20px
+    }
+
+    #pixxett-api .method .method-area:first-child .method-example {
+        padding-top: 35px
+    }
+
+    #pixxett-api .method .method-copy {
+        padding: 0 0 15px
+    }
+
+    #pixxett-api h3 {
+        font-size: 14px;
+        line-height: 20px
+    }
+
+    #pixxett-api .method .method-example .method-example-part {
+        padding: 15px 0
+    }
+
+    #pixxett-api .method .method-example .method-example-part .method-example-declaration:before,
+    #pixxett-api .method .method-example .method-example-part .method-example-endpoint:before,
+    #pixxett-api .method .method-example .method-example-part .method-example-object:before,
+    #pixxett-api .method .method-example .method-example-part .method-example-request:before,
+    #pixxett-api .method .method-example .method-example-part .method-example-response:before {
+        font-size: 12px
+    }
+}
+
+@media(min-width:1200px) {
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item {
+        zoom: 1
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item:after,
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item:before {
+        content: "";
+        display: table
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-label {
+        width: 180px
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-label {
+        position: relative;
+        z-index: 5;
+        float: left;
+        text-align: right
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-description {
+        margin: 0 0 0 200px
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-description {
+        position: relative;
+        z-index: 10;
+        background: #fff
+    }
+
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-label .method-list-item-label-details,
+    #pixxett-api .method .method-copy .method-list .method-list-group .method-list-item .method-list-item-label .method-list-item-validation {
+        display: block
+    }
+}
+
+@media(min-width:1200px) and (max-width:1500px) {
+    #pixxett-api #background .background-actual {
+        left: 47.1%
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 55.2%
+    }
+
+    #pixxett-api .method .method-copy {
+        width: 47%
+    }
+
+    #pixxett-api .method .method-example {
+        margin-left: 47%
+    }
+}
+
+@media(min-width:1501px) and (max-width:1680px) {
+    #pixxett-api #background .background-actual {
+        left: 48.3%
+    }
+
+    #pixxett-api .header-section-wrapper {
+        left: 55.2%
+    }
+
+    #pixxett-api .method .method-copy {
+        width: 47%
+    }
+
+    #pixxett-api .method .method-example {
+        margin-left: 47%
+    }
+}
