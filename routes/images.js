@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require('path');
 const moment = require('moment');
 
-const DIR = './public/images/uploads';
+const DIR = './public/images/products';
 
 // Configure Storage
 var storage = multer.diskStorage({
@@ -37,6 +37,9 @@ var upload = multer({
 	}
 })
 
+/**
+ * POST Image for upload to server
+ */
 router.post('/', upload.single('uploadedImg'), (req, res, next) => {
 	const file = req.file
 	console.log('file', file);

@@ -3,6 +3,9 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../db/db');
 
+/**
+ * POST Register for create user
+ */
 router.post('/register', function (req, res, next) {
     try {
         const password = req.body.password;
@@ -16,7 +19,7 @@ router.post('/register', function (req, res, next) {
 
             const today = new Date();
             const email = req.body.email;
-            const users = {
+            const user = {
                 "lastName": req.body.lastname,
                 "firstName": req.body.firstname,
                 "address": req.body.address,
@@ -25,7 +28,7 @@ router.post('/register', function (req, res, next) {
                 "phone": req.body.phone,
                 "email": email,
                 "password": hash,
-                "created_at": today,
+                "createdAt": today,
             }
             connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
                 if (results.length > 0) {
@@ -33,14 +36,14 @@ router.post('/register', function (req, res, next) {
                         message: 'Email already exists'
                     })
                 } else {
-                    connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
+                    connection.query('INSERT INTO users SET ?', user, function (error, results, fields) {
                         if (error) {
                             res.status(405).json({
                                 error: 'There are some error with query'
                             })
                         } else {
                             res.status(200).json({
-                                message: 'User created successfully'
+                                message: 'User has been successfully created.'
                             })
                         }
                     });
@@ -52,6 +55,9 @@ router.post('/register', function (req, res, next) {
     }
 });
 
+/**
+ * POST Login for authentication
+ */
 router.post('/login', function (req, res) {
     console.log(req.body)
     const email = req.body.email;
@@ -84,6 +90,9 @@ router.post('/login', function (req, res) {
     });
 });
 
+/**
+ * PUT Lost Password 
+ */
 router.put('/lostPassword', function (req, res) {
 
 })
