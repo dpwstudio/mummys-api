@@ -20,6 +20,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const ordersRouter = require('./routes/orders');
 const imagesRouter = require('./routes/images');
+var emailsRouter = require('./routes/emails');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,6 +50,7 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/orders', ordersRouter);
 app.use('/images', imagesRouter);
+app.use('/emails', emailsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

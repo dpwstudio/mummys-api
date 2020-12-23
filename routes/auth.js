@@ -27,7 +27,9 @@ router.post('/register', function (req, res, next) {
                 "city": req.body.city,
                 "phone": req.body.phone,
                 "email": email,
+                "newsletter": req.body.newsletter === true ? 1 : 0,
                 "password": hash,
+                "role": "client",
                 "createdAt": today,
             }
             connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
@@ -38,6 +40,7 @@ router.post('/register', function (req, res, next) {
                 } else {
                     connection.query('INSERT INTO users SET ?', user, function (error, results, fields) {
                         if (error) {
+                            console.log('error', error)
                             res.status(405).json({
                                 error: 'There are some error with query'
                             })
