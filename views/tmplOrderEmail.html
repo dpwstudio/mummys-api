@@ -7,10 +7,9 @@
 	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="x-apple-disable-message-reformatting">
-	<title>Mummy's Food - Zora, un client à une question !</title>
+	<title>Mummy's Food - Commande confirmée</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet">
-
 	<style>
 		html,
 		body {
@@ -171,13 +170,57 @@
 		}
 
 		.hero .text h3 {
-			font-size: 24px;
+			font-size: 20px;
 			font-weight: 200;
 		}
 
 		.hero .text h2 span {
 			font-weight: 600;
 			color: #000;
+		}
+
+		.order-head {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.order-head h2 {
+			margin: 0;
+			font-size: 35px;
+			font-weight: 600;
+		}
+
+		.order-head h3 {
+			margin: 0;
+			font-weight: 600;
+			font-size: 25px;
+		}
+
+		.product-entry {
+			padding: 20px 0;
+			margin-bottom: 4em;
+		}
+
+		.product-entry .text {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			align-items: center;
+			justify-content: space-between;
+			padding-left: 20px;
+		}
+
+		.product-entry .text h3,
+		.product-entry .text h4,
+		.product-entry .text p {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		.product-entry .text p {
+			margin-top: 0;
 		}
 
 		.footer {
@@ -229,16 +272,48 @@
 					<td valign="middle" class="hero bg_white" style="padding: 4em 0 0;">
 						<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
 							<tr>
-								<td style="padding: 0 2.5em 3em; text-align: left;">
+								<td style="padding: 0 2.5em 1em; text-align: left;">
 									<div class="text">
-										<h2>Bonjour Zora,</h2>
-										<h3>${req.body.name} a une question à vous poser, voici le détail :</h3>
-										<h3>${req.body.message}</h3>
-										<p style="text-align:center; margin: 40px 0; font-weight: 600;"><a
-												href="mailto:${req.body.email}" class="btn btn-primary">Répondre</a></p>
-										<h3>Mummy's Food application.</h3>
+										<h2>Bonjour ${req.body.firstname},</h2>
+										<h3>Merci d'avoir passé commande sur <a
+												style="color: #ffdc8c !important; font-weight: 500;"
+												href="http://mummysfood.com">Mummysfood.com</a>, vous pouvez à tout moment consulter
+											l'historique de vos commandes en cliquant sur le bouton ci-dessous.</h3>
+										<p style="text-align:center; margin: 30px 0; font-weight: 600;"><a
+												href="http://mummysfood.com/profile" class="btn btn-primary">Consulter mes commandes</a></p>
 									</div>
 								</td>
+							</tr>
+							<tr>
+								<table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0"
+									style="padding-bottom: 20px;" width="100%">
+									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+										<th width="80%"
+											style="text-align:left; padding: 0 2em; color: #000; padding-bottom: 10px">
+											<div class="order-head">
+												<h3>Total</h3>
+												<h2>120,00€</h2>
+											</div>
+										</th>
+									</tr>
+									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+										<td valign="middle" width="100%" class="row-product"
+											style="text-align:left; padding: 0 2.5em;">
+											<div class="product-entry">
+												<div class="text">
+													<h3>Soupe Pho</h3>
+													<p>1</p>
+													<h4>11,00€</h4>
+												</div>
+												<div class="text">
+													<h3>Soupe Pho</h3>
+													<p>1</p>
+													<h4>11,00€</h4>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
 							</tr>
 						</table>
 					</td>
