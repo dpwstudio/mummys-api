@@ -184,6 +184,8 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
+			border-bottom: 1px solid rgba(0, 0, 0, .05);
+			padding-bottom: 1em;
 		}
 
 		.order-head h2 {
@@ -200,7 +202,6 @@
 
 		.product-entry {
 			padding: 20px 0;
-			margin-bottom: 4em;
 		}
 
 		.product-entry .text {
@@ -210,6 +211,7 @@
 			align-items: center;
 			justify-content: space-between;
 			padding-left: 20px;
+			margin-bottom: 5px;
 		}
 
 		.product-entry .text h3,
@@ -221,6 +223,23 @@
 
 		.product-entry .text p {
 			margin-top: 0;
+		}
+
+		.product-entry .text h3 {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.product-entry .text h3 span {
+			border: 2px solid #ffcd6d;
+			color: #ffcd6d;
+			padding: 1px 1px;
+			font-size: 17px;
+			border-radius: 5px;
+			font-weight: 500;
+			text-align: center;
+			width: 30px;
+			margin-right: 15px;
 		}
 
 		.footer {
@@ -274,42 +293,39 @@
 							<tr>
 								<td style="padding: 0 2.5em 1em; text-align: left;">
 									<div class="text">
-										<h2>Bonjour ${req.body.firstname},</h2>
+										<h2>Bonjour ${req.body.clientName},</h2>
 										<h3>Merci d'avoir passé commande sur <a
 												style="color: #ffdc8c !important; font-weight: 500;"
-												href="http://mummysfood.com">Mummysfood.com</a>, vous pouvez à tout moment consulter
-											l'historique de vos commandes en cliquant sur le bouton ci-dessous.</h3>
-										<p style="text-align:center; margin: 30px 0; font-weight: 600;"><a
-												href="http://mummysfood.com/profile" class="btn btn-primary">Consulter mes commandes</a></p>
+												href="http://mummysfood.com">Mummysfood.com</a>, voici le détail :</h3>
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0"
 									style="padding-bottom: 20px;" width="100%">
-									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+									<tr>
 										<th width="80%"
 											style="text-align:left; padding: 0 2em; color: #000; padding-bottom: 10px">
 											<div class="order-head">
 												<h3>Total</h3>
-												<h2>120,00€</h2>
+												<h2> ${req.body.total} €</h2>
 											</div>
 										</th>
 									</tr>
-									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+									<tr>
 										<td valign="middle" width="100%" class="row-product"
 											style="text-align:left; padding: 0 2.5em;">
 											<div class="product-entry">
 												<div class="text">
-													<h3>Soupe Pho</h3>
-													<p>1</p>
+													<h3><span class="qty-product">12x</span> Soupe Pho</h3>
 													<h4>11,00€</h4>
 												</div>
 												<div class="text">
-													<h3>Soupe Pho</h3>
-													<p>1</p>
+													<h3><span class="qty-product">1x</span> Beignet de crevette par 6</h3>
 													<h4>11,00€</h4>
 												</div>
+												<p style="margin-top: 5em; font-size: 11px;">Pour consulter vos reçus (et vos factures le cas échéant), ou pour obtenir plus
+													d'informations, rendez-vous sur votre <a href="http://localhost4200/profile" style="color: #ffcd6d">espace personnel</a>.</p>
 											</div>
 										</td>
 									</tr>

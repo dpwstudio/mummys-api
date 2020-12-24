@@ -24,6 +24,7 @@ router.post('/', (req, res) => {
       const order = {
         "status": req.body.status,
         "clientName": req.body.clientName,
+        "email": req.body.email,
         "localization": req.body.localization,
         "total": req.body.total,
         "carts": req.body.carts,

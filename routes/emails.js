@@ -791,8 +791,22 @@ router.post('/contact', (req, res, next) => {
  * POST emails for order page
  */
 router.post('/order', (req, res, next) => {
-	console.log("Send Email", req.body)
-	const templateEmail = `
+	console.log("Send email order", req.body);
+
+	let carts = JSON.parse(req.body.carts);
+	let newCarts = [];
+	for (let i = 0; i < carts.length; i++) {
+		console.log('qdfqsdf', i);
+		let obj = {
+			name: carts[i].name,
+			qty: carts[i].quantity,
+			price: carts[i].price
+		};
+		newCarts.push(obj);
+		console.log('newCarts', newCarts);
+	}
+
+	let templateEmail = `
 	<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
 	xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -979,6 +993,7 @@ router.post('/order', (req, res, next) => {
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
+			border-bottom: 1px solid rgba(0,0,0,.05);
 		}
 
 		.order-head h2 {
@@ -995,7 +1010,6 @@ router.post('/order', (req, res, next) => {
 
 		.product-entry {
 			padding: 20px 0;
-			margin-bottom: 4em;
 		}
 
 		.product-entry .text {
@@ -1005,6 +1019,7 @@ router.post('/order', (req, res, next) => {
 			align-items: center;
 			justify-content: space-between;
 			padding-left: 20px;
+			margin-bottom: 5px;
 		}
 
 		.product-entry .text h3,
@@ -1016,6 +1031,22 @@ router.post('/order', (req, res, next) => {
 
 		.product-entry .text p {
 			margin-top: 0;
+		}
+		.product-entry .text h3 {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.product-entry .text h3 span {
+			border: 2px solid #ffcd6d;
+			color: #ffcd6d;
+			padding: 1px 1px;
+			font-size: 17px;
+			border-radius: 5px;
+			font-weight: 500;
+			text-align: center;
+			width: 30px;
+			margin-right: 15px;
 		}
 
 		.footer {
@@ -1069,42 +1100,46 @@ router.post('/order', (req, res, next) => {
 							<tr>
 								<td style="padding: 0 2.5em 1em; text-align: left;">
 									<div class="text">
-										<h2>Bonjour ${req.body.firstname},</h2>
+										<h2>Bonjour ${req.body.clientName},</h2>
 										<h3>Merci d'avoir passé commande sur <a
 												style="color: #ffdc8c !important; font-weight: 500;"
-												href="http://mummysfood.com">Mummysfood.com</a>, vous pouvez à tout moment consulter
-											l'historique de vos commandes en cliquant sur le bouton ci-dessous.</h3>
-										<p style="text-align:center; margin: 30px 0; font-weight: 600;"><a
-												href="http://localhost:4200/profile" class="btn btn-primary">Consulter mes commandes</a></p>
+												href="http://mummysfood.com">Mummysfood.com</a>, voici le détail :</h3>
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0"
 									style="padding-bottom: 20px;" width="100%">
-									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+									<tr>
 										<th width="80%"
 											style="text-align:left; padding: 0 2em; color: #000; padding-bottom: 10px">
 											<div class="order-head">
 												<h3>Total</h3>
-												<h2>120,00€</h2>
+												<h2>${req.body.total} €</h2>
 											</div>
 										</th>
 									</tr>
-									<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
+									<tr>
 										<td valign="middle" width="100%" class="row-product"
 											style="text-align:left; padding: 0 2.5em;">
 											<div class="product-entry">
-												<div class="text">
-													<h3>Soupe Pho</h3>
-													<p>1</p>
-													<h4>11,00€</h4>
-												</div>
-												<div class="text">
-													<h3>Soupe Pho</h3>
-													<p>1</p>
-													<h4>11,00€</h4>
-												</div>
+												`;
+
+	for (const {
+			name,
+			qty,
+			price
+		} of newCarts) {
+		templateEmail += (
+			'<div class="text">' +
+			'<h3><span class="qty-product">'+ qty + 'x</span>' + name + '</h3>' +
+			'<h4>' + price + ' €</h4></div>'
+		);
+	}
+
+	templateEmail += `
+												<p style="margin-top: 5em; font-size: 11px;">Pour consulter vos reçus (et vos factures le cas échéant), ou pour obtenir plus
+												d'informations, rendez-vous sur votre espace personnel.</p>
 											</div>
 										</td>
 									</tr>
@@ -1230,8 +1265,8 @@ router.post('/order', (req, res, next) => {
 
 	var mailOptions = {
 		from: 'Mummy\'s Food <contact@mummysfood.com>', //replace with your email
-		to: 'zora.khadir@gmail.com', //replace with your email
-		subject: `Zora, un client a une question pour vous !`,
+		to: req.body.email, //replace with your email
+		subject: `Commande confirmée !`,
 		html: templateEmail
 	};
 
@@ -1242,9 +1277,9 @@ router.post('/order', (req, res, next) => {
 				error: error.message
 			}) // if error occurs send error as response to client
 		} else {
-			console.log('Email for contact sent: ' + info.response);
+			console.log('Email for order sent: ' + info.response);
 			res.json({
-				message: 'Email sent with successfully'
+				message: 'Email order sent with successfully.'
 			}) //if mail is sent successfully send Sent successfully as response
 		}
 	});
