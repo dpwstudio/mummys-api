@@ -1018,7 +1018,6 @@ router.post('/order', (req, res, next) => {
 			width: 100%;
 			align-items: center;
 			justify-content: space-between;
-			padding-left: 20px;
 			margin-bottom: 5px;
 		}
 
@@ -1035,18 +1034,19 @@ router.post('/order', (req, res, next) => {
 		.product-entry .text h3 {
 			display: flex;
 			flex-direction: row;
+			font-size: 13px;
 		}
 
 		.product-entry .text h3 span {
 			border: 2px solid #ffcd6d;
 			color: #ffcd6d;
 			padding: 1px 1px;
-			font-size: 17px;
+			font-size: 12px;
 			border-radius: 5px;
 			font-weight: 500;
 			text-align: center;
-			width: 30px;
-			margin-right: 15px;
+			width: 23px;
+			margin-right: 10px;
 		}
 
 		.footer {
@@ -1115,7 +1115,7 @@ router.post('/order', (req, res, next) => {
 											style="text-align:left; padding: 0 2em; color: #000; padding-bottom: 10px">
 											<div class="order-head">
 												<h3>Total</h3>
-												<h2>${req.body.total} €</h2>
+												<h2>${req.body.total.toFixed(2).toString().replace('.', ',')} €</h2>
 											</div>
 										</th>
 									</tr>
@@ -1130,10 +1130,11 @@ router.post('/order', (req, res, next) => {
 			qty,
 			price
 		} of newCarts) {
+		const newPrice = parseFloat(price).toFixed(2).toString().replace('.', ',');
 		templateEmail += (
 			'<div class="text">' +
 			'<h3><span class="qty-product">'+ qty + 'x</span>' + name + '</h3>' +
-			'<h4>' + price + ' €</h4></div>'
+			'<h4>' + newPrice + ' €</h4></div>'
 		);
 	}
 
