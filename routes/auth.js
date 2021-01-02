@@ -94,10 +94,74 @@ router.post('/login', function (req, res) {
 });
 
 /**
- * PUT Lost Password 
+ * POST Lost Password 
  */
-router.put('/lostPassword', function (req, res) {
+router.post('/lostPassword', function (req, res) {
+    console.log('req', req.body);
+    try {
+        const email = req.body.email;
+        connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
+            if (results.length === 0) {
+                res.status(404).json({
+                    message: 'This email doesn\'t exist'
+                })
+            } else {
+                res.status(200).json({
+                    message: 'Email founded.'
+                })
+            }
+        });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+})
 
+/**
+ * PUT Reset Password 
+ */
+router.put('/resetPassword', function (req, res) {
+    console.log('req', req.body);
+    try {
+        const password = req.body.password;
+        console.log('password')
+        bcrypt.hash(password, 10, function (err, hash) {
+            if (err) {
+                console.error(err)
+                return
+            }
+
+            const email = req.body.email;
+            const user = {
+                password: hash,
+                email: email
+            }
+            console.log('user', user);
+            connection.query('SELECT * FROM users WHERE email = ?', [email], function (error, results, fields) {
+                if (results.length === 0) {
+                    res.status(404).json({
+                        message: 'Email not found'
+                    })
+                } else {
+                    const sql = `UPDATE users SET password="${user.password}" WHERE email="${user.email}"`;
+                    console.log('sql', sql);
+                    connection.query(sql, function (err, result) {
+                        if (error) {
+                            console.log('error', error)
+                            res.status(405).json({
+                                error: 'There are some error with query'
+                            })
+                        } else {
+                            res.status(200).json({
+                                message: 'Reset password with success.'
+                            })
+                        }
+                    });
+                }
+            });
+        });
+    } catch (err) {
+        res.status(500).send(err);
+    }
 })
 
 module.exports = router;

@@ -63,6 +63,26 @@ router.get('/:id', (req, res) => {
     connection.query('SELECT * FROM orders WHERE id = ?', id, (error, result) => {
       if (result.length === 0) {
         res.status(404).json({
+          message: 'Order not found'
+        });
+      } else {
+        res.status(200).json([...result]);
+      }
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+/**
+ * GET Orders by user id
+ */
+router.get('/user/:id', (req, res) => {
+  try {
+    const id = req.params.id;
+    connection.query('SELECT * FROM orders WHERE userId = ?', id, (error, result) => {
+      if (result.length === 0) {
+        res.status(404).json({
           message: 'User not found'
         });
       } else {
